@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\CepService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/', function (CepService $cepService) {
     return view('index');
 });
+
+Route::get('/cep/{cep}', 'CepController');
